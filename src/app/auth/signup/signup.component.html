@@ -1,0 +1,28 @@
+<div class="container-fluid">
+<section class="col-md-12">
+    <form class="col-md-4 offset-md-4" [formGroup]="SignUpForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input matInput placeholder="Your Email" type="email" formControlName="email">
+            <mat-error *ngIf="SignUpForm.controls.email.hasError('required')"> Email is required</mat-error>
+            <mat-error *ngIf="SignUpForm.controls.email.hasError('email')"> Email is invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Your Password" type="password" formControlName="password">
+            <mat-hint>Must be 6 characters length</mat-hint>
+            <mat-error *ngIf="SignUpForm.controls.password.hasError('minlength')"> Must be Six characters in length</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <mat-label>Choose your birthday</mat-label>
+            <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="birthDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        <div class="text-center">
+            <mat-checkbox color="primary" formControlName="agree" class="example-margin">Agree to Terms and Conditions</mat-checkbox>
+        </div>
+        <div class="text-center mt-3">
+       <button type="submit" [disabled]="SignUpForm.invalid" mat-raised-button color="primary">Submit</button>
+    </div>
+    </form>
+</section>
+</div>

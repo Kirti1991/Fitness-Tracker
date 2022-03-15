@@ -1,0 +1,8 @@
+<section class="text-center mt-5">
+    <div class="d-flex justify-content-center">
+    <mat-progress-spinner mode="determinate" [value]="progress"></mat-progress-spinner>
+   </div>
+    <h1>{{progress}}%</h1>
+    <p>Keep on going, you can do it!</p>
+    <button mat-raised-button color="accent" (click)="onStop()">Stop</button>
+</section>

@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <div class="d-block d-sm-none"><button mat-icon-button (click)="onToggle()">
+        <mat-icon>menu</mat-icon>
+    </button></div>
+    <div><a routerLink="/">NG Fitness</a></div>
+    <div style="width:100%;" class="d-none d-sm-block" >
+        <a [hidden]="isAuth$ | async" routerLink="/signup">SignUp</a>
+        <a [hidden]="isAuth$ | async" routerLink="/login">Login</a>
+        <a [hidden]="!(isAuth$ | async)" routerLink="/training">Training</a>
+        <a [hidden]="!(isAuth$ | async)" (click)="onLogOut()" style="cursor:pointer;" >LogOut</a>
+    </div>
+  </mat-toolbar>

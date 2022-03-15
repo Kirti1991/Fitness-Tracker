@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <section class="col-md-12">
+        <form class="col-md-4 offset-md-4" [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <input matInput placeholder="Your Email" type="email" formControlName="email">
+                <mat-error *ngIf="LoginForm.controls.email.hasError('required')"> Email is required</mat-error>
+                <mat-error *ngIf="LoginForm.controls.email.hasError('email')"> Email is invalid</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Your Password" type="password" formControlName="password">
+                <mat-hint>Must be 6 characters length</mat-hint>
+                <mat-error *ngIf="LoginForm.controls.password.hasError('minlength')"> Must be Six characters in length</mat-error>
+            </mat-form-field>
+           
+            <div class="text-center mt-3">
+           <button  type="submit" [disabled]="LoginForm.invalid" mat-raised-button color="primary">Submit</button>
+           <!-- <mat-spinner *ngIf="isloading"></mat-spinner> -->
+        </div>
+        </form>
+    </section>
+    </div>
